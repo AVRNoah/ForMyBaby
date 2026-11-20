@@ -4,8 +4,8 @@ Run `npm install` and `npm run dev`, then open the local address displayed by Vi
 
 ## Live website
 
-The public site is hosted at https://AVRNoah.github.io/medication-log-builder/.
-Pushing to `master` runs the GitHub Pages workflow, which checks and builds the app before deploying it. The deployment build uses `/medication-log-builder/` as Vite's base path; local development still uses `/`.
+The public site is hosted at https://AVRNoah.github.io/ForMyBaby/.
+Pushing to `master` runs the GitHub Pages workflow, which checks and builds the app before deploying it. The deployment build uses `/ForMyBaby/` as Vite's base path; local development still uses `/`.
 The website has no login protection. Do not enter patient-identifying information.
 
 ## Using the app
