@@ -2,6 +2,14 @@
 
 Run `npm install` and `npm run dev`, then open the local address displayed by Vite.
 
+## Live website
+
+The public site is hosted at https://AVRNoah.github.io/medication-log-builder/.
+Pushing to `master` runs the GitHub Pages workflow, which checks and builds the app before deploying it. The deployment build uses `/medication-log-builder/` as Vite's base path; local development still uses `/`.
+The website has no login protection. Do not enter patient-identifying information.
+
+## Using the app
+
 The **Add medications** panel starts collapsed. Open it, paste a list, and select **Find medications & labels**. Each name is automatically searched in openFDA without regard to capitalization. Entries show the matching product-label options or an explicit no-match/error message. Choose the appropriate label to populate its excerpts; the app never automatically chooses the first product. Enter one medication per line, with optional dose and route on the same line or immediately below it. Review every entry before exporting a PDF.
 
 Typing at least three characters in a drug-name field searches the free [NLM RxTerms API](https://clinicaltables.nlm.nih.gov/apidoc/rxterms/v3/doc.html) for suggestions. Choosing a suggestion sets the name only; it does not set the route or select a specific product.

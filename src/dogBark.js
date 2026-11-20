@@ -19,7 +19,7 @@ export function createBarkPlayer() {
       if (context.state !== 'running') throw new Error('Bark audio could not start.')
 
       if (!buffer) {
-        const response = await fetch('/audio/dachshund-bark.mp3')
+        const response = await fetch(`${import.meta.env.BASE_URL}audio/dachshund-bark.mp3`)
         if (!response.ok) throw new Error(`Bark recording could not load (HTTP ${response.status}).`)
         const data = await response.arrayBuffer()
         if (disposed) return
