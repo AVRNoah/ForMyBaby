@@ -1,0 +1,92 @@
+const encouragements = [
+  'You got this!',
+  'OH YEAH BABY!',
+  'One page at a time. You are doing great!',
+  'That brain is putting in WORK!',
+  'Deep breath. Next question. Let us go!',
+  'You do not have to know it all today.',
+  'Progress, not perfection!',
+  'Look at you showing up again!',
+  'Study break? Water first!',
+  'Future you is cheering you on!',
+  'Keep going, superstar!',
+  'One tricky question does not define you.',
+  'You can start small and still go far.',
+  'Confused today, connecting the dots tomorrow.',
+  'You are allowed to ask for help.',
+  'A little review still counts.',
+  'Your effort matters, even on the messy days.',
+  'Slow down. Read it again. You have time to learn.',
+  'Take the break. Come back kinder to yourself.',
+  'Every practice question teaches you something.',
+  'You are building this, one concept at a time.',
+  'You do not need a perfect day to make progress.',
+  'Rest is part of the plan, too.',
+  'The next step is enough for right now.',
+  'Hey, you learned something you did not know yesterday!',
+  'Your pace does not have to match anyone else.',
+  'Big goals. Small steps. Keep at it.',
+  'Mistakes are feedback, not your identity.',
+  'You are more than your last exam score.',
+  'Look how far you have already come.',
+  'Try explaining it out loud. You might surprise yourself!',
+  'Keep the curiosity. Let go of the perfection.',
+  'You can be nervous and still do the next thing.',
+  'There is room to grow, and you belong here.',
+  'Your future patients will appreciate that curiosity.',
+  'Put the phone down for one question. Just one!',
+  'A snack and a stretch might be the next best move.',
+  'You are learning how to think, not just what to memorize.',
+  'Not yet does not mean never.',
+  'That hard topic? We can take it one piece at a time.',
+  'You showed up. That is a solid start.',
+  'Celebrate the small wins. They are real wins.',
+  'One focused minute is better than waiting for perfect motivation.',
+  'You can change the plan without giving up the goal.',
+  'You have done hard things before. Take the next small step.',
+].map((text) => ({ text, category: 'motivation' })).concat([
+  'Tiny paws. BIG belief in you!',
+  'One paw in front of the other. You are getting there!',
+  'Stay pawsitive. That tricky chapter is not the boss of you.',
+  'I believe in you more than I believe in snack time!',
+  'Long dog, long journey. We can take it one short step at a time!',
+].map((text) => ({ text, category: 'motivation', dogThemed: true })))
+
+// W. D. Ross translations; shortened passages are marked as excerpts.
+const aristotle = [
+  { text: 'All men by nature desire to know.', author: 'Aristotle', work: 'Metaphysics, I.1' },
+  { text: 'For the things we have to learn before we can do them, we learn by doing them.', author: 'Aristotle', work: 'Nicomachean Ethics, II.1 (excerpt)' },
+  { text: 'Thus, in one word, states of character arise out of like activities.', author: 'Aristotle', work: 'Nicomachean Ethics, II.1' },
+  { text: 'Now each man judges well the things he knows, and of these he is a good judge.', author: 'Aristotle', work: 'Nicomachean Ethics, I.3' },
+  { text: 'Presumably, then, we must begin with things known to us.', author: 'Aristotle', work: 'Nicomachean Ethics, I.4' },
+  { text: 'Shall we not, like archers who have a mark to aim at, be more likely to hit upon what is right?', author: 'Aristotle', work: 'Nicomachean Ethics, I.2' },
+  { text: 'Happiness, then, is something final and self-sufficient, and is the end of action.', author: 'Aristotle', work: 'Nicomachean Ethics, I.7' },
+  { text: 'For one swallow does not make a summer, nor does one day.', author: 'Aristotle', work: 'Nicomachean Ethics, I.7 (excerpt)' },
+  { text: 'For the beginning is thought to be more than half of the whole, and many of the questions we ask are cleared up by it.', author: 'Aristotle', work: 'Nicomachean Ethics, I.7' },
+  { text: 'Let this serve as an outline of the good; for we must presumably first sketch it roughly, and then later fill in the details.', author: 'Aristotle', work: 'Nicomachean Ethics, I.7' },
+  { text: 'For with friends men are more able both to think and to act.', author: 'Aristotle', work: 'Nicomachean Ethics, VIII.1 (excerpt)' },
+  { text: 'Further, such friendship requires time and familiarity.', author: 'Aristotle', work: 'Nicomachean Ethics, VIII.3 (excerpt)' },
+  { text: 'And in poverty and in other misfortunes men think friends are the only refuge.', author: 'Aristotle', work: 'Nicomachean Ethics, VIII.1' },
+  { text: 'Thus a master of any art avoids excess and defect, but seeks the intermediate and chooses this.', author: 'Aristotle', work: 'Nicomachean Ethics, II.6 (excerpt)' },
+  { text: 'But though our present account is of this nature we must give what help we can.', author: 'Aristotle', work: 'Nicomachean Ethics, II.2' },
+].map((quote) => ({ ...quote, category: 'aristotle' }))
+
+const dogJokes = [
+  'I tried to fetch your motivation. Came back with a sock.',
+  'My study method? Sit. Stay. Stare at the same page.',
+  'I am not short. I am optimized for under-desk support.',
+  'You handle the flashcards. I will handle any dropped snacks.',
+  'My resume says long body, short meetings.',
+  'I put the pro in procrastination. Then I took a nap.',
+  'I would help with anatomy, but every bone looks like a treat.',
+  'My browser has one tab: snacks.',
+  'I have a PhD in looking busy when the treat bag opens.',
+  'Good news: I ate your stress. Bad news: I want seconds.',
+].map((text) => ({ text, category: 'humor' }))
+
+export function chooseDogQuote(previousText, random = Math.random) {
+  const roll = random()
+  const pool = roll < 0.1 ? aristotle : roll < 0.15 ? dogJokes : encouragements
+  const choices = pool.filter((quote) => quote.text !== previousText)
+  return choices[Math.floor(random() * choices.length)]
+}
